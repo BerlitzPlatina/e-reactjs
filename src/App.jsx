@@ -3,10 +3,10 @@ import { Routes, Route, Navigate, redirect } from "react-router-dom";
 
 import RtlLayout from "./layouts/rtl";
 import AdminLayout from "./layouts/admin";
-import AuthLayout from "./layouts/auth";
+import AuthLayout from "./layouts/auth/index";
 const App = () => {
   const [token, setToken] = useState();
-  if (0) {
+  if (1) {
     return <AuthLayout setToken={setToken} />
   }
   return (

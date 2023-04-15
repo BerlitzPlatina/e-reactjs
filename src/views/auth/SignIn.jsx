@@ -1,8 +1,11 @@
 import InputField from "../../components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
 import Checkbox from "../../components/checkbox";
+import { useState } from "react";
 
 export default function SignIn() {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
       {/* Sign in section */}
@@ -35,6 +38,7 @@ export default function SignIn() {
             placeholder="mail@simmmple.com"
             id="email"
             type="text"
+            handleValue={setUserName}
           />
 
           {/* Password */}
@@ -45,6 +49,7 @@ export default function SignIn() {
             placeholder="Min. 8 characters"
             id="password"
             type="password"
+            handleValue={setPassword}
           />
           {/* Checkbox */}
           <div className="mb-4 flex items-center justify-between px-2">
