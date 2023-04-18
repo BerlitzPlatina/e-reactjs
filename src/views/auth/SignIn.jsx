@@ -2,14 +2,32 @@ import InputField from "../../components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
 import Checkbox from "../../components/checkbox";
 import { useState } from "react";
-
+import request from "../../requests/index";
+function getDataSummary(data) {
+  console.log('wtfff');
+  return request(`/integration/admin/token`, {
+    method: "POST",
+    data: data,
+  });
+}
 export default function SignIn() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    /* axios.post(`http://localhost:8000/api/admin/login`, info)
+      .then(res => {
+        props.setToken?.(res.data.access_token)
+      }) */
+      getDataSummary({"username": userName, "password": password}).then(res => {
+        console.log(res);
+      });      
+  }
   return (
     <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
       {/* Sign in section */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mt-[10vh] w-full max-w-full flex-col items-center md:pl-4 lg:pl-0 xl:max-w-[420px]">
           <h4 className="mb-2.5 text-4xl font-bold text-navy-700 dark:text-white">
             Sign In

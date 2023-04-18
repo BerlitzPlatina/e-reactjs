@@ -6,8 +6,6 @@ import SignIn from "../../views/auth/SignIn";
 import { useState } from "react";
 
 export default function Auth(props) {
-  const [userName, setUserName] = useState();
-  const [password, setpassword] = useState();
   document.documentElement.dir = "ltr";
   return (
     <div>
