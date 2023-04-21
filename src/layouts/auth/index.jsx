@@ -5,8 +5,12 @@ import FixedPlugin from "../../components/fixedPlugin/FixedPlugin";
 import SignIn from "../../views/auth/SignIn";
 import { useState } from "react";
 
-export default function Auth(props) {
+export const AuthLayout = ({handleToken2}) => {
   document.documentElement.dir = "ltr";
+  const handleToken = (num) => {
+    console.log('num1',);
+    return handleToken2?.(num);
+  }
   return (
     <div>
       <div className="relative float-right h-full min-h-screen w-full !bg-white dark:!bg-navy-900">
@@ -34,7 +38,7 @@ export default function Auth(props) {
                     </p>
                   </div>
                 </Link>
-                <SignIn setToken={props.setToken}/>
+                <SignIn handleToken={handleToken}/>
                 <div className="absolute right-0 hidden h-full min-h-screen md:block lg:w-[49vw] 2xl:w-[44vw]">
                   <div
                     className="absolute flex h-full w-full items-end justify-center bg-cover bg-center lg:rounded-bl-[120px] xl:rounded-bl-[200px]"

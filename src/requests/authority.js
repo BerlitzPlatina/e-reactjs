@@ -7,7 +7,7 @@ export function getAuthority(str) {
       ? sessionStorage.getItem('token')
       : str; // authorityString could be admin, "admin", ["admin"]
   let authority;
-  console.log(authorityString);
+  console.log('authorityString', authorityString);
   
   try {
     if (authorityString) {

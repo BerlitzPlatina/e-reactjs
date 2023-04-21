@@ -4,13 +4,12 @@ import Checkbox from "../../components/checkbox";
 import { useState } from "react";
 import request from "../../requests/index";
 function getDataSummary(data) {
-  console.log('wtfff');
   return request(`/integration/admin/token`, {
     method: "POST",
     data: data,
   });
 }
-export default function SignIn() {
+export default function SignIn({handleToken}) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
@@ -21,7 +20,7 @@ export default function SignIn() {
         props.setToken?.(res.data.access_token)
       }) */
       getDataSummary({"username": userName, "password": password}).then(res => {
-        console.log(res);
+        handleToken(res.data)
       });      
   }
   return (
